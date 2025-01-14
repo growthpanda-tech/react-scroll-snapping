@@ -16,19 +16,29 @@ export default function App() {
           className="flex w-[300%] h-full place-items-center"
           style={{ x }}
         >
-          <div className="bg-red-400 w-1/3 h-[50vh] inline-grid text-3xl place-items-center text-white">
-            Section 01
-          </div>
-          <div className="bg-green-400 h-[50vh] inline-grid w-1/3 text-3xl place-items-center text-white">
-            Section 02
-          </div>
-          <div className="bg-blue-400 h-[50vh] inline-grid w-1/3 text-3xl place-items-center text-white">
-            Section 03
-          </div>
+          <Section className="bg-red-400">Section 01</Section>
+          <Section className="bg-green-400">Section 02</Section>
+          <Section className="bg-blue-400">Section 03</Section>
         </motion.div>
       </div>
       <div className="h-screen snap-start"></div>
       <div className="h-screen snap-start"></div>
+    </div>
+  );
+}
+
+function Section({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`w-1/3 h-[50vh] inline-grid text-3xl place-items-center text-white ${className}`}
+    >
+      {children}
     </div>
   );
 }
